@@ -1,1 +1,134 @@
 @use '../util/' as *;
+
+.card {
+  background-color: var(--dark-des-blue);
+  text-align: center;
+  border-radius: rem(8);
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(large) {
+    flex-direction: row-reverse;
+    text-align: start;
+  }
+
+  &__img {
+    &--mobile {
+      img {
+        width: 100%;
+        border-radius: rem(8) rem(8) 0 0;
+      }
+      @include breakpoint(large) {
+        display: none;
+      }
+    }
+
+    &--desktop {
+
+      img {
+        display: block;
+        border-radius: 0 rem(8) rem(8) 0;
+        height: rem(449);
+      }
+
+      @include breakpoint-down(medium) {
+        display: none;
+      }
+    }
+  }
+
+  .content {
+    padding: 0 rem(26.5);
+
+    @include breakpoint(large) {
+        padding: rem(65) rem(70) 0;
+    }
+  }
+
+  &__title {
+    padding: rem(40) 0 rem(20);
+
+    @include breakpoint(large) {
+        padding: 0 0 rem(25) 0;
+    }
+
+    h1 {
+      font-size: rem(27);
+      letter-spacing: rem(0.5);
+
+      @include breakpoint(large) {
+        font-size: rem(38);
+        letter-spacing: rem(1);
+    }
+    }
+
+    span {
+      color: var(--soft-violet);
+    }
+  }
+
+  &__desc {
+    padding-bottom: rem(45);
+
+    @include breakpoint(large) {
+        padding-bottom: rem(65);
+      }
+
+    p {
+      font-size: rem(15);
+      margin: 0;
+      line-height: 1.65;
+      color: var(--sli-trans-white-h);
+
+      @include breakpoint(large) {
+        font-size: rem(17);
+        line-height: 1.75;
+    }
+    }
+  }
+
+  &__num {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(large) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-right: rem(50);
+    }
+
+    .num__box {
+      padding-bottom: rem(30);
+
+      @include breakpoint(large) {
+        padding-bottom: 0;
+        margin-bottom: rem(65);
+      }
+
+      &:last-child {
+        padding-bottom: rem(39);
+
+        @include breakpoint(large) {
+            padding-bottom: 0;
+          }
+      }
+    }
+
+    .num__num {
+      padding-bottom: rem(11);
+      color: var(--white);
+
+      @include breakpoint(large) {
+        padding-bottom: rem(6);
+      }
+    }
+
+    .num__name {
+      margin: 0;
+      font-family: var(--font-lexend);
+      text-transform: uppercase;
+      color: var(--sli-trans-white-h);
+      font-size: rem(14);
+    }
+  }
+}
